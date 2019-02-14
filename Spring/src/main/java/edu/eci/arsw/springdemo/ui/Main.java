@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  * @author hcadavid
  */
+//@SpringBootApplication
 public class Main {
 
     public static void main(String a[]) {
