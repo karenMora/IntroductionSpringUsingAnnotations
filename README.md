@@ -25,9 +25,9 @@
 # Part II
 - Modify the configuration with annotations so that the Bean 'GrammarChecker' now makes use of the SpanishSpellChecker class (so that GrammarChecker is injected with EnglishSpellChecker instead of SpanishSpellChecker.) Verify the new result.
 
-![](SpringSpanishChecker.png)
-![](SpringSpanishSpell.png)
-![](SpringSpanish.png)
+![](/img/SpringSpanishChecker.png)
+![](/img/SpringSpanishSpell.png)
+![](/img/SpringSpanish.png)
 
 
 
