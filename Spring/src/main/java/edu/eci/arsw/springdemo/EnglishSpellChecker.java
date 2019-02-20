@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 //@Component
-//@Servie
+//@Service
 //@Qualifier("ingles")
 public class EnglishSpellChecker implements SpellChecker {
 
