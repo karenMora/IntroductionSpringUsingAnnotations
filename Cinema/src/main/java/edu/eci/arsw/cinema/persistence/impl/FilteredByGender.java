@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.cinema.persistence.impl;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
 import edu.eci.arsw.cinema.model.Movie;
@@ -12,15 +13,14 @@ import edu.eci.arsw.cinema.persistence.CinemaException;
 import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.CinemaPersitence;
 import java.util.List;
-import org.springframework.stereotype.Component;
 
 /**
  *
  * @author karen
  */
 //@Component("cps")
-public class AnotherCinemaPersistence implements CinemaPersitence{
-
+public class FilteredByGender implements CinemaPersitence{
+    
     @Override
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -44,6 +44,7 @@ public class AnotherCinemaPersistence implements CinemaPersitence{
     @Override
     public List<Movie> getFilteredByGender(Cinema cinema, String date, int genero) throws CinemaPersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override

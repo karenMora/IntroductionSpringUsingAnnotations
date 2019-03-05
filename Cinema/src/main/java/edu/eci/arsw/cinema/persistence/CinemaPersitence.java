@@ -7,6 +7,7 @@ package edu.eci.arsw.cinema.persistence;
 
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
+import edu.eci.arsw.cinema.model.Movie;
 import java.util.List;
 
 /**
@@ -51,4 +52,23 @@ public interface CinemaPersitence {
      */
     public Cinema getCinema(String name) throws CinemaPersistenceException;
     
+    /**
+     * 
+     * @param cinema
+     * @param date
+     * @param genero
+     * @return
+     * @throws CinemaPersistenceException 
+     */
+    public List<Movie> getFilteredByGender(Cinema cinema, String date, int genero)throws CinemaPersistenceException;
+    
+    /**
+     * 
+     * @param cinema
+     * @param date
+     * @param seat
+     * @return
+     * @throws CinemaPersistenceException 
+     */
+    public List<Movie> getFilteringByAvailability(String cinema, String date, int seat) throws CinemaPersistenceException;
 }

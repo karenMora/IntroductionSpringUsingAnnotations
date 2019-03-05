@@ -7,12 +7,14 @@ package edu.eci.arsw.cinema.services;
 
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
+import edu.eci.arsw.cinema.model.Movie;
 import edu.eci.arsw.cinema.persistence.CinemaException;
 import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.CinemaPersitence;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,7 +25,8 @@ import org.springframework.stereotype.Service;
 public class CinemaServices {
     
     @Autowired
-    CinemaPersitence cps=null;
+    CinemaPersitence cps;
+    
     
     public void addNewCinema(Cinema c){
         
@@ -55,6 +58,12 @@ public class CinemaServices {
         }
         return funciones;
     }
-
-
+    
+    public List<Movie> getFilteredByGender(Cinema cinema, String date, int genero) throws CinemaPersistenceException{
+        return cps.getFilteredByGender(cinema, date, genero);
+    }
+    
+    public List<Movie> getFilteringByAvailability(String cinema, String date, int seat) throws CinemaPersistenceException{
+        return cps.getFilteringByAvailability(cinema, date, seat);
+    }
 }

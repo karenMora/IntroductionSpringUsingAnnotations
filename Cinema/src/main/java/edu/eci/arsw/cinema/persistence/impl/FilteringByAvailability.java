@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  * @author karen
  */
 //@Component("cps")
-public class AnotherCinemaPersistence implements CinemaPersitence{
+public class FilteringByAvailability implements CinemaPersitence{
 
     @Override
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {

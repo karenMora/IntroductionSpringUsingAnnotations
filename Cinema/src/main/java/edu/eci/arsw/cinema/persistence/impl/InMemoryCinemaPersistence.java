@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.cinema.persistence.impl;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
 import edu.eci.arsw.cinema.model.Movie;
@@ -74,6 +75,24 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     @Override
     public Cinema getCinema(String name) throws CinemaPersistenceException {
         return cinemas.get(name);
+    }
+
+    @Override
+    public List<Movie> getFilteredByGender(Cinema cinema, String date, int genero) throws CinemaPersistenceException {
+        List<Movie> pelis=new ArrayList<>();
+        List<CinemaFunction> funciones=new ArrayList<>();
+        Cinema cine;
+        for(CinemaFunction funcion: funciones){
+            if(funcion.getDate().equals(date) && funcion.getMovie().getGenre().equals(genero)){
+                pelis.add(funcion.getMovie());
+            }
+        }
+        return pelis;
+    }
+
+    @Override
+    public List<Movie> getFilteringByAvailability(String cinema, String date, int seat) throws CinemaPersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
