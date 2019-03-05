@@ -15,11 +15,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author cristian
  */
+@Component("cps")
 public class InMemoryCinemaPersistence implements CinemaPersitence{
     
     private final Map<String,Cinema> cinemas=new HashMap<>();
@@ -38,12 +40,25 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
 
     @Override
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        CinemaFunction funcion=null;
+        for (CinemaFunction funcionCine: cinemas.get(cinema).getFunctions()){
+            if(funcionCine.getMovie().getName().equals(movieName) && funcionCine.getDate().equals(date)){
+                funcion=funcionCine;
+                break;
+            }
+        }
+        funcion.buyTicket(row, col);
     }
 
     @Override
     public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        List<CinemaFunction> funciones=new ArrayList<>();
+        for (CinemaFunction funcionCine: cinemas.get(cinema).getFunctions()){
+            if( funcionCine.getDate().equals(date)){
+                funciones.add(funcionCine);
+            }
+        }
+        return funciones;
     }
 
     @Override

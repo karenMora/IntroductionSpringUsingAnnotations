@@ -11,6 +11,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+        
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -72,7 +74,34 @@ public class InMemoryPersistenceTest {
         catch (CinemaPersistenceException ex){
             
         }
-                
+    }
+    
+    @Test
+    public void buyTicket(){
+        String functionDate = "2019-03-15 10:30";
+        List<CinemaFunction> functions= new ArrayList<>();
+        CinemaFunction functA = new CinemaFunction(new Movie("Caperucita roja 1","kids"),functionDate);
+        functions.add(functA);
+        assertTrue("Creado", functA.getMovie().getName().equals("Caperucita roja 1")&& functA.getDate().equals(functionDate));
+    }
+    
+    @Test
+    public void getFunctionsbyCinemaAndDate(){
+        String functionDate = "2019-05-27 17:30";
+        List<CinemaFunction> functions= new ArrayList<>();
+        CinemaFunction functA = new CinemaFunction(new Movie("Avengers","action"),functionDate);
+        functions.add(functA);
+        assertEquals(functA.getDate(), "2019-05-27 17:30");
+    }
+    
+    @Test
+    public void getCinemaByName() throws CinemaPersistenceException{
+        InMemoryCinemaPersistence ipct=new InMemoryCinemaPersistence();
+        String name="The Night";
+        assertTrue(ipct.getCinema(name).getName().equals("The Night"));
         
     }
+    
+    
+    
 }
